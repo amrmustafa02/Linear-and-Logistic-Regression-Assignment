@@ -18,9 +18,8 @@ test_data_file_path = "data/Data.csv"
 
 data_set = pd.read_csv(test_data_file_path)
 
-all_features = data_set.iloc[:, :-1]
-all_targets = data_set.iloc[:, -1:]
-
+all_features = []
+all_targets = []
 features_train = []
 features_test = []
 targets_train = []
@@ -98,8 +97,7 @@ def data_preprocessing():
     # ------------------------------------------
     print(GREEN + "\n2 - Separate features and targets..." + RESET)
     time.sleep(2)
-    all_features = data_set.iloc[:, :-2]
-    all_targets = data_set.iloc[:, -2:]
+    separate_features_targets()
     print("------------------ Features ------------------")
     print(all_features)
     print("------------------ Targets ------------------")
@@ -136,7 +134,13 @@ def data_preprocessing():
     print(GREEN + "\n6 - the data is shuffled and split into training and testing sets..." + RESET)
 
 
-#
+def separate_features_targets():
+    global all_targets, all_features
+    all_features = data_set.iloc[:, :-1]
+    all_targets = data_set.iloc[:, -1:]
+
+
+separate_features_targets()
 print(BLUE + "Step 1: Perform analysis" + RESET)
 print("----------------------------------------------------")
 perform_analysis()

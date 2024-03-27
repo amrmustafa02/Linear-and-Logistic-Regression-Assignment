@@ -1,0 +1,11 @@
+Country,Age,Salary,Purchased
+France,1,0.77,No
+Spain,0.27,,Yes
+Germany,,0.45,No
+Spain,0.38,0.54,No
+Germany,0.43,0.10,Yes
+France,0.35,0.2,Yes
+Spain,0.2,0.10,No
+France,0.10,0.66,Yes
+Germany,0,1,No
+France,0.37,0.99,Yes

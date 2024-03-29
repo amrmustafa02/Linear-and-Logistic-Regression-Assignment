@@ -110,11 +110,14 @@ def encode_features():
 
 def standardize_numerical_features():
     global features_train, features_test
+
     print("\nFeatures before standardized...\n")
+
     print("\n------------------ Features Train------------------")
-    print(features_train["Income"])
+    print(features_train)
     print("\n------------------ Features Test------------------")
     print(features_test)
+
     sc = StandardScaler()
 
     features_train["Income"] = sc.fit_transform(features_train[["Income"]])

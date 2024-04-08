@@ -68,7 +68,7 @@ def encode_targets():
     targets_train['Loan_Status'] = train_target_encoded
     targets_test['Loan_Status'] = test_target_encoded
 
-    print("\nData after encoded...\n")
+    print("\nTargets after encoded...\n")
 
     print("------------------ Targets Train------------------")
     print(targets_train)
@@ -446,7 +446,7 @@ def predict_data():
     print("\n Predictions \n")
     print(predictions_df)
 
-    with pd.ExcelWriter("output/predictions_data.xlsx") as writer:
+    with pd.ExcelWriter("output/new_predictions.xlsx") as writer:
         predictions_df.to_excel(writer, index=False)
 
 
@@ -478,6 +478,6 @@ print("----------------------------------------------------")
 print(f"Accuracy:  {calculate_accuracy() * 100}")
 
 print("----------------------------------------------------")
-print(BLUE + "\nStep 6: Save the model." + RESET)
+print(BLUE + "\nStep 6: New predictions." + RESET)
 print("----------------------------------------------------")
 predict_data()

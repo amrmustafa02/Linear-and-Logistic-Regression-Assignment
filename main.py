@@ -422,7 +422,7 @@ def predict_data_preprocessing():
     encode_predict_categorical_features()
 
 
-def predict_data():
+def new_predictions():
     global predict_data_set
 
     predict_data_preprocessing()
@@ -441,7 +441,7 @@ def predict_data():
     loan_status_predictions = np.where(predicted_probabilities > 0.5, 1, 0)
 
     predictions_df = pd.DataFrame(
-        {'Predicted Loan Status': loan_status_predictions, "Max Loan Amount": amount_predictions})
+        {'Loan_Status': loan_status_predictions, "Max_Loan_Amount": amount_predictions})
 
     print("\n Predictions \n")
     print(predictions_df)
@@ -480,4 +480,4 @@ print(f"Accuracy:  {calculate_accuracy() * 100}")
 print("----------------------------------------------------")
 print(BLUE + "\nStep 6: New predictions." + RESET)
 print("----------------------------------------------------")
-predict_data()
+new_predictions()

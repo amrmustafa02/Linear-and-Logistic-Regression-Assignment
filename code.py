@@ -9,6 +9,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
 import numpy as np
+import os
 
 GREEN = '\033[92m'
 BLUE = '\033[94m'
@@ -16,11 +17,14 @@ RESET = '\033[0m'
 
 # -------------------------------
 #  importing data set
-train_data_file_path = "data/loan_old.csv"
-predict_data_file_path = "data/loan_new.csv"
+train_data_file_path = "loan_old.csv"
+predict_data_file_path = "loan_new.csv"
 
 data_set = pd.read_csv(train_data_file_path)
 predict_data_set = pd.read_csv(predict_data_file_path)
+
+os.makedirs("./output", exist_ok=True)
+
 # -------------------------------
 #  features and targets
 all_features: pd.DataFrame

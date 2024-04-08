@@ -276,7 +276,8 @@ def data_preprocessing():
     print("------------------ Dataset before drop missing values ------------------")
     print(data_set)
 
-    data_set = remove_rows_have_missing_values(data_set)
+    data_set.dropna(inplace=True)
+    data_set.reset_index(drop=True, inplace=True)
 
     print("------------------ Dataset after drop missing values ------------------")
     print(data_set)

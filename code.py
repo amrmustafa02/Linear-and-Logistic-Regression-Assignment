@@ -85,7 +85,12 @@ def encode_categories_columns(column_name):
     global features_train, features_test
 
     encoder = OneHotEncoder(sparse_output=False)
-
+    # [
+    # [0 , 0 , 1]
+    # [0 , 1, 0]
+    # [0 , 0 ,1]
+    # [1, 0 , 0]
+    # ]
     property_area_encoder_in_train_data = encoder.fit_transform(features_train[[column_name]])
     property_area_encoder_in_test_data = encoder.fit_transform(features_test[[column_name]])
 
@@ -241,7 +246,9 @@ def perform_analysis():
     time.sleep(2)
 
     for column in all_features.columns:
+
         col_type = all_features[column].dtype
+
         if pd.api.types.is_numeric_dtype(col_type):
             print(f"'{column}': numerical.")
         else:
@@ -366,6 +373,7 @@ def sigmoid(z):
 
 def calculate_hypothesis(features):
     h = np.dot(features, weights) + bias
+
     return h
 
 
